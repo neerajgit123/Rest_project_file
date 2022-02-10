@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for i in page_obj %}
+      id : {{i.id}} <br>
+  name :  {{i.name}} <br>
+  collage_name : {{i.collage_name}} <br>
+ collage_city :   {{i.collage_city}} <br>
+course :    {{i.course}} <br>
+    <hr>
+
+    {% endfor %}
+
+    <br>
+
+
+
+    <div>
+
+        <span>
+            {% if page_obj.has_previous %}
+              <a href="?page={{page_obj.previour_page_number}}">Previous</a>
+            {% endif %}
+
+        </span>
+<span>{{page_obj.number}}</span>    
+
+
+        <span>
+            {% if page_obj.has_next %}
+              <a href="?page={{page_obj.next_page_number}}">Next</a>
+            {% endif %} 
+
+        </span>
+
+
+
+        <!-- {% if page_obj.has_previous %}
+ <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+{% else %}
+  <a>Previous</a>
+{% endif %}
+
+{% for i in page_obj.paginator.page_range %}
+  {% if page_obj.number == i %}
+    <a href="#">{{ i }} </a>
+  {% else %}
+    <a href="?page={{ i }}">{{ i }}</a>
+  {% endif %}
+{% endfor %}
+
+{% if page_obj.has_next %}
+  <a href="?page={{ page_obj.next_page_number }}">Next</a>
+{% else %}
+  <a>Next</a>
+{% endif %} -->
+    </div>
+</body>
+</html>
